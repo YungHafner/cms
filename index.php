@@ -29,8 +29,35 @@ $router->map('POST', '/signup', 'App\BackEndController::UserSignUp');
 $router->group('/admin', function (\League\Route\RouteGroup $router) {
     $router->map('GET', '/', 'App\BackEndController::index');
     $router->map('GET', '/logout', 'App\BackEndController::userLogOut');
+    $router->map('GET', '/filemanager', 'App\BackEndController::filemanager');
     $router->map('GET', '/users', 'App\BackEndController::showUsersList');
     $router->map('GET', '/articles', 'App\BackEndController::showArticlesList');
+
+    $router->map('GET', '/article-add', 'App\BackEndController::showAddArticleForm');
+    $router->map('POST', '/article-add', 'App\BackEndController::insertArticle');
+
+    //$router->map('GET', '/category-add', 'App\BackEndController::showAddCategoryForm');
+    //$router->map('POST', '/category-add', 'App\BackEndController::insertCategory');
+
+    $router->map('GET', '/categories', 'App\BackEndController::showCategoriesList');
+    $router->map('GET', '/category-add', 'App\BackEndController::showAddCategoryForm');
+    $router->map('POST', '/category-add', 'App\BackEndController::insertCategory');
+
+    $router->map('GET', '/tags', 'App\BackEndController::showTagsList');
+    $router->map('GET', '/tag-add', 'App\BackEndController::showAddTagForm');
+    $router->map('POST', '/tag-add', 'App\BackEndController::insertTag');
+
+
+    $router->map(
+        'GET',
+        '/article-edit/{id:number}',
+        'App\BackEndController::showUpdateArticleForm'
+    );
+    $router->map(
+        'POST',
+        '/article-update/{id:number}',
+        'App\BackEndController::updateArticle'
+    );
 })->middleware(new \App\Middleware\AuthMiddleware);
 
 $response = $router->dispatch($request);

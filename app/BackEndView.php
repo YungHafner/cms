@@ -32,9 +32,24 @@ class BackEndView
     {
         return $this->twig->render('userlist.twig',['users' => $users]);
     }
-    public function showArticlesList($articles)
+    public function showArticlesList($articles, $categories)
     {
-        return $this->twig->render('articleslist.twig',['articles' => $articles]);
+        return $this->twig->render('articleslist.twig',['articles' => $articles, 'categories'=>$categories]);
+    }
+
+    public function showAddArticleForm($article, $categories, $target)
+    {
+        return $this->twig->render('add-article.twig',['article' => $article, 'categories'=>$categories, 'target'=> $target]);
+    }
+    /* Для категорий */
+    public function showCategoriessList($categories)
+    {
+        return $this->twig->render('categorieslist.twig',['categories'=>$categories]);
+    }
+    //Для Тэгов
+    public function showTagsList($tags)
+    {
+        return $this->twig->render('tagsList.twig',['tags'=>$tags]);
     }
 
 }
