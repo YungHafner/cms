@@ -182,6 +182,7 @@ use Auth;
         return $this->responseWrapper($html);
     }
 
+    // и вот это тоже перепиши в BackEndController.php
     public function showCategoriesList(ServerRequestInterface $request): ResponseInterface
     {
         $categories = $this->getAll('categories');
@@ -195,7 +196,7 @@ use Auth;
         $html = $this->View->showTagsList($tags );
         return $this->responseWrapper($html);
     }
-
+// до этого комментарияSS
     public function showAddArticleForm(ServerRequestInterface $request): ResponseInterface
     {   $article = [];
         $categories = $this->getAll('categories');

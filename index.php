@@ -39,6 +39,7 @@ $router->group('/admin', function (\League\Route\RouteGroup $router) {
     //$router->map('GET', '/category-add', 'App\BackEndController::showAddCategoryForm');
     //$router->map('POST', '/category-add', 'App\BackEndController::insertCategory');
 
+    // вика вот это переписывай в код побежимова файл index.php
     $router->map('GET', '/categories', 'App\BackEndController::showCategoriesList');
     $router->map('GET', '/category-add', 'App\BackEndController::showAddCategoryForm');
     $router->map('POST', '/category-add', 'App\BackEndController::insertCategory');
@@ -46,7 +47,7 @@ $router->group('/admin', function (\League\Route\RouteGroup $router) {
     $router->map('GET', '/tags', 'App\BackEndController::showTagsList');
     $router->map('GET', '/tag-add', 'App\BackEndController::showAddTagForm');
     $router->map('POST', '/tag-add', 'App\BackEndController::insertTag');
-
+// вот до этой остановки
 
     $router->map(
         'GET',

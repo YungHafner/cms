@@ -41,7 +41,7 @@ class BackEndView
     {
         return $this->twig->render('add-article.twig',['article' => $article, 'categories'=>$categories, 'target'=> $target]);
     }
-    /* Для категорий */
+    /* Для категорий */ // От сюда BackEndView.php
     public function showCategoriessList($categories)
     {
         return $this->twig->render('categorieslist.twig',['categories'=>$categories]);
@@ -51,5 +51,5 @@ class BackEndView
     {
         return $this->twig->render('tagsList.twig',['tags'=>$tags]);
     }
-
+//до сюда переписывай это
 }
